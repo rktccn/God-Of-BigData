@@ -92,7 +92,9 @@ public class HashMap<K,V> extends AbstractMap<K,V> implements Map<K,V>, Cloneabl
 ```
 **loadFactor加载因子**
 
-loadFactor加载因子是控制数组存放数据的疏密程度，loadFactor越趋近于1，那么 数组中存放的数据(entry)也就越多，也就越密，也就是会让链表的长度增加，load Factor越小，也就是趋近于0，
+loadFactor加载因子是控制数组存放数据的疏密程度，临界值（threshold） = 负载因子（loadFactor） * 容量（capacity）。
+当某个链表达到临界值的时候，就会自动扩容。若:加载因子越大,填满的元素越多,好处是,空间利用率高了,但:冲突的机会加大了。反之,加载因子越小,填满的元素越少,好处是:冲突的机会减小了,但:空间浪费多了。
+
 
 loadFactor太大导致查找元素效率低，太小导致数组的利用率低，存放的数据会很分散。loadFactor的默认值为0.75f是官方给出的一个比较好的临界值。
 
